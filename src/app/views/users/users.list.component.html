@@ -1,0 +1,72 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Users
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered table-sortable">
+                        <thead>
+                        <tr>
+                            <th [ngClass]="getOrderClass('username')"
+                                (click)="onSort('username')">Username</th>
+                            <th>Date registered</th>
+                            <th>Is Admin</th>
+                            <th class="no">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="Username"
+                                       [(ngModel)]="search.username"
+                                       (keyup.enter)="onSearch()">
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr *ngFor="let user of model.records">
+                            <td>{{user.username}}</td>
+                            <td>{{user.date_created}}</td>
+                            <td>{{user.is_admin}}</td>
+                            <td class="table-action">
+                                <a [routerLink]="['/users/detail/' + user.id]" class="btn btn-info btn-sm">
+                                    <i class="fa fa-eye"></i>
+                                </a>{{' '}}
+                                <a [routerLink]="['/users/edit/' + user.id]" class="btn btn-warning btn-sm">
+                                    <i class="fa fa-pencil"></i>
+                                </a>{{' '}}
+                                <a [routerLink]="['/users/delete/' + user.id]" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <ul class="pagination" *ngIf="model.total > model.per_page">
+                        <li class="page-item">
+                            <a class="page-link"
+                               [routerLink]="['/users', addParams('offset', 0)]">First</a>
+                        </li>
+
+                        <li [ngClass]="'page-item ' + ((i == pagination.page - 1) && 'active')"
+                            *ngFor="let in of total_pages; let i = index">
+                            <a class="page-link"
+                               [routerLink]="['/users', addParams('offset', (i)*pagination.per_page)]">{{i+1}}</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link"
+                               [routerLink]="['/users', addParams('offset', (pagination.total-1)*pagination.per_page)]">Last</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
