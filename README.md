@@ -18,6 +18,7 @@ $ yarn install
 ```
 
 ## Config
+* Create Oauth2 from Avoca Platform
 * Go to src/app/config/appConfig.ts
 * Config oauth2 with Avoca-Platform
 
