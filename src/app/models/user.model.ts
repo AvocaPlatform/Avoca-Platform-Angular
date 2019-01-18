@@ -12,7 +12,7 @@ export class UserModel {
     }
 
     getList(search: any = {}, order: any = {}, offset: number = 0): any {
-        const url = this.uri + '/users';
+        const url = this.uri + '/Users';
 
         let params = {...search, offset: offset};
         if (order.by) {
@@ -24,7 +24,7 @@ export class UserModel {
     }
 
     getById(id: number) {
-        const url = this.uri + '/users/' + id;
+        const url = this.uri + '/Users/' + id;
         return this._http.get<any>(url);
     }
 
@@ -37,12 +37,12 @@ export class UserModel {
     }
 
     save(user: any) {
-        const url = this.uri + '/users';
+        const url = this.uri + '/Users';
         return this._http.post<any>(url, user);
     }
 
     getInfo(token: string) {
-        const url = this.uri + '/users/profile/' + token;
+        const url = this.uri + '/Users/profile/' + token;
         return this._http.get<any>(url);
     }
 }

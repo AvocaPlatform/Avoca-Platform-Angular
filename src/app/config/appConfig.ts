@@ -1,6 +1,7 @@
 export const appConfig = {
     api: {
-        backEndUrl: 'http://dev.platform.avoca.io/api/v1',
+        adminUrl: 'http://localhost/Avoca-Platform/public/Admin',
+        backEndUrl: 'http://localhost/Avoca-Platform/public/api/v1',
         clientId: 'avoca',
         clientSecret: 'avoca_secret',
     },

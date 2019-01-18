@@ -20,7 +20,7 @@ export class AuthenticateModel {
             + '&username=' + username
             + '&password=' + password;
 
-        const url = appConfig.api.backEndUrl + '/auth';
+        const url = appConfig.api.backEndUrl + '/Auth';
 
         return this._http.post<any>(url, body, {headers: headers}).pipe(map(
             token => {
@@ -45,7 +45,7 @@ export class AuthenticateModel {
             + '&client_secret=' + appConfig.api.clientSecret
             + '&refresh_token=' + refresh_token;
 
-        const url = appConfig.api.backEndUrl + '/auth/refresh_token';
+        const url = appConfig.api.backEndUrl + '/Auth/refresh_token';
         console.log(url);
 
         return this._http.post<any>(url, body, {headers: headers}).pipe(map(

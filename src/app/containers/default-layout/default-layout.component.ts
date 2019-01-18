@@ -3,6 +3,7 @@ import {navItems} from "./../../_nav";
 import {AppStateService} from "../../stores/app.state.service";
 import {Router} from "@angular/router";
 import {UserModel} from "../../models/user.model";
+import {appConfig} from "../../config/appConfig";
 
 @Component({
     selector: "app-dashboard",
@@ -14,6 +15,7 @@ export class DefaultLayoutComponent implements OnInit, AfterViewChecked {
     private changes: MutationObserver;
     public element: HTMLElement = document.body;
 
+    adminUrl = appConfig.api.adminUrl;
     loading = false;
     user: any = {};
 
